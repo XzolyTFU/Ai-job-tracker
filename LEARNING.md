@@ -24,3 +24,30 @@
 ### Mistakes I made
 - Named a field `date`, which shadows the imported type (like `int int;` in C). Renamed it to `posted_at`.
 - Ran `python` inside `app/` and got `ModuleNotFoundError`. Imports resolve from the folder Python starts in.
+
+## 2026-10-26
+
+**Built:** `app/parser.py` 
+
+### load_dotenv() 
+
+- `load_dotenv()` loads the first .env file it finds (searching upward from the current folder) `"into the environment of the running Python process"` (os.environ), not into the code. 
+- It’s gone when the program ends.
+
+### Error Types
+
+- 4xx is mostly a `"client error"` : my request was wrong (bad key, wrong model name, bad request). Exception: 429 means too many requests, so wait and retry. 
+- 5xx is a `"server error"`.
+
+### AI Models/ API CALL 
+
+- I switched models because the first one was so crowded that not a single call got through (503 for days). I switched to another model with lighter traffic, which answered my call quickly.
+
+### Parser
+
+- `parse_job_ad` takes a string / plain text (job description) and attempts, with a 2-time for loop, to call the Gemini API, which parses the job ad into **JSON** following the JobAd schema provided in the configuration. 
+- If the JSON is validated, parse_job_ad returns the JobAd object (not JSON). If not, it raises a `ValueError` (after 2 failed attempts) that contains the last `ValidationError`.
+
+### Python -m 
+- `"python -m app.parser"` searches imports starting from the folder I’m currently in (the repo root), so from app.models import looks for app/ inside the root folder, where it’s found. 
+- If python app/parser.py is run, imports are searched from the folder where the script is, so it looks for app/ inside app/, which results in an error.

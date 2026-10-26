@@ -218,3 +218,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Ignored Files
+tests/ads/*.txt
+!tests/ads/00_sample.txt
