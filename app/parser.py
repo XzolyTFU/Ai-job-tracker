@@ -18,24 +18,24 @@ def parse_job_ad(text: str) -> JobAd:
 
 
 
+if __name__ == "__main__":
+    ThisAd = """Werkstudent (m/w/d) Softwareentwicklung C++/Python
+        TechNova GmbH, Berlin (hybrid, 2 Tage remote)
+        Veröffentlicht: 14.10.2026
 
-ThisAd = """Werkstudent (m/w/d) Softwareentwicklung C++/Python
-    TechNova GmbH, Berlin (hybrid, 2 Tage remote)
-    Veröffentlicht: 14.10.2026
+        Deine Aufgaben:
+        - Weiterentwicklung unserer Embedded-Software in C++
+        - Schreiben von Testskripten in Python
+        - Mitarbeit im agilen Team (Scrum)
 
-    Deine Aufgaben:
-    - Weiterentwicklung unserer Embedded-Software in C++
-    - Schreiben von Testskripten in Python
-    - Mitarbeit im agilen Team (Scrum)
+        Dein Profil:
+        - Studium der Informatik oder Technischen Informatik
+        - Gute Kenntnisse in C++, erste Erfahrung mit Python
+        - Git und Linux sind dir vertraut
+        - Deutsch und Englisch fließend
 
-    Dein Profil:
-    - Studium der Informatik oder Technischen Informatik
-    - Gute Kenntnisse in C++, erste Erfahrung mit Python
-    - Git und Linux sind dir vertraut
-    - Deutsch und Englisch fließend
+        Umfang: 16-20 Std./Woche
+        Kontakt: jobs@technova.example"""
 
-    Umfang: 16-20 Std./Woche
-    Kontakt: jobs@technova.example"""
-
-print(parse_job_ad(ThisAd))
+    print(parse_job_ad(ThisAd))
 
