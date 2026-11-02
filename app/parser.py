@@ -9,7 +9,7 @@ client = genai.Client()
 def parse_job_ad(text: str) -> JobAd:
     for attempt in range(2):
         try:
-            response = client.models.generate_content(model="gemini-3.5-flash-lite", contents=("Extract the job ad data :\n" + text), config={"response_mime_type": "application/json", "response_schema": JobAd})
+            response = client.models.generate_content(model="gemini-3.5-flash-lite", contents=("Extract the job ad data. For skills, copy each skill exactly as it is written in the ad. Do not translate, rephrase or add skills. :\n" + text), config={"response_mime_type": "application/json", "response_schema": JobAd})
             ad = JobAd.model_validate_json(response.text)
             return ad
         except ValidationError as e:
@@ -37,5 +37,5 @@ if __name__ == "__main__":
         Umfang: 16-20 Std./Woche
         Kontakt: jobs@technova.example"""
 
-    print(parse_job_ad(ThisAd))
+    print(parse_job_ad(ThisAd).model_dump_json(indent=2))
 
