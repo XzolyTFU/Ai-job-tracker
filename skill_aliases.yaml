@@ -1,0 +1,30 @@
+c++:
+  - cpp
+  - c/c++
+python:
+  - python3
+git:
+  - github
+  - gitlab
+  - versionskontrolle
+linux:
+  - unix
+  - embedded linux
+testing:
+  - test
+  - tests
+  - testautomatisierung
+  - softwaretest
+  - systemtest
+  - verifikation
+  - validierung
+  - qualitätssicherung
+oop:
+  - objektorientierte programmierung
+  - objektorientierung
+englisch:
+  - english
+  - englischkenntnisse
+deutsch:
+  - german
+  - deutschkenntnisse
